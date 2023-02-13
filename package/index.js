@@ -10,8 +10,13 @@ const { lerp, clamp } = require("./helpers");
  * @returns An eased value between start and end
  */
 module.exports.easeIn = (start, end, amount, power, clamped = true) => {
+  // First, clamp our amount if we should
   amount = clamped ? clamp(amount, 0, 1) : amount;
+
+  // Then get the amount to ease by
   const easingAmount = Math.pow(amount, power);
+
+  // Now do our actual easing
   return lerp(start, end, easingAmount);
 };
 
@@ -25,11 +30,14 @@ module.exports.easeIn = (start, end, amount, power, clamped = true) => {
  * @returns An eased value between start and end
  */
 module.exports.easeOut = (start, end, amount, power, clamped = true) => {
+  // Clampy clamp
   amount = clamped ? clamp(amount, 0, 1) : amount;
 
+  // Get ease amount
   const flippedAmount = 1 - amount;
   const flippedEasingAmount = Math.pow(flippedAmount, power);
   const easingAmount = 1 - flippedEasingAmount;
 
+  // Do the easing
   return lerp(start, end, easingAmount);
 };
