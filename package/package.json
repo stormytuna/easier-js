@@ -1,0 +1,23 @@
+{
+  "name": "easier-js",
+  "version": "1.0.0",
+  "description": "A small library that adds various lerp and easing functions",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stormytuna/easier-js.git"
+  },
+  "keywords": [
+    "easing"
+  ],
+  "author": "stormytuna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stormytuna/easier-js/issues"
+  },
+  "homepage": "https://github.com/stormytuna/easier-js#readme"
+}
