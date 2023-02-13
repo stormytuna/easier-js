@@ -1,7 +1,7 @@
-const { easeIn, easeOut, easeInOut } = require("easier-js");
+const { easeIn, easeOut, easeInOut, easeInNormalised, easeOutNormalised, easeInOutNormalised } = require("easier-js");
 
 describe("easeIn", () => {
-  it("should return the correct value when amount is between 0 and 1", () => {
+  it("should return the correct value", () => {
     expect(easeIn(0, 1, 0.5, 2)).toBeCloseTo(0.25, 2);
     expect(easeIn(0, 1, 0.5, 3)).toBeCloseTo(0.125, 3);
     expect(easeIn(0, 1, 0.5, 4)).toBeCloseTo(0.0625, 4);
@@ -25,7 +25,7 @@ describe("easeIn", () => {
 });
 
 describe("easeOut", () => {
-  it("should return the correct value when amount is between 0 and 1", () => {
+  it("should return the correct value", () => {
     expect(easeOut(0, 1, 0.5, 2)).toBeCloseTo(0.75, 2);
     expect(easeOut(0, 1, 0.5, 3)).toBeCloseTo(0.875, 3);
     expect(easeOut(0, 1, 0.5, 4)).toBeCloseTo(0.9375, 4);
@@ -49,10 +49,10 @@ describe("easeOut", () => {
 });
 
 describe("easeInOut", () => {
-  it("should return the correct value when amount is between 0 and 1", () => {
-    expect(easeInOut(0, 1, 0.5, 2)).toBeCloseTo(0.5, 2);
-    expect(easeInOut(0, 1, 0.5, 3)).toBeCloseTo(0.5, 3);
-    expect(easeInOut(0, 1, 0.5, 4)).toBeCloseTo(0.5, 4);
+  it("should return the correct value", () => {
+    expect(easeInOut(0, 1, 0.5, 2)).toBe(0.5);
+    expect(easeInOut(0, 1, 0.5, 3)).toBe(0.5);
+    expect(easeInOut(0, 1, 0.5, 4)).toBe(0.5);
     expect(easeInOut(0, 1, 0.2, 2)).toBeCloseTo(0.104, 3);
     expect(easeInOut(0, 1, 0.2, 3)).toBeCloseTo(0.104, 3);
     expect(easeInOut(0, 1, 0.2, 4)).toBeCloseTo(0.11936, 5);
