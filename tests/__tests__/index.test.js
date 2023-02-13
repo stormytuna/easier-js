@@ -1,4 +1,4 @@
-const { easeIn, easeOut } = require("easier-js");
+const { easeIn, easeOut, easeInOut } = require("easier-js");
 
 describe("easeIn", () => {
   it("should return the correct value when amount is between 0 and 1", () => {
@@ -45,5 +45,29 @@ describe("easeOut", () => {
   it("should not clamp amount when clamp is false", () => {
     expect(easeOut(0, 1, -1, 1, false)).toBeLessThan(0);
     expect(easeOut(0, 1, 2, 1, false)).toBeGreaterThan(1);
+  });
+});
+
+describe("easeInOut", () => {
+  it("should return the correct value when amount is between 0 and 1", () => {
+    expect(easeInOut(0, 1, 0.5, 2)).toBeCloseTo(0.5, 2);
+    expect(easeInOut(0, 1, 0.5, 3)).toBeCloseTo(0.5, 3);
+    expect(easeInOut(0, 1, 0.5, 4)).toBeCloseTo(0.5, 4);
+    expect(easeInOut(0, 1, 0.2, 2)).toBeCloseTo(0.104, 3);
+    expect(easeInOut(0, 1, 0.2, 3)).toBeCloseTo(0.104, 3);
+    expect(easeInOut(0, 1, 0.2, 4)).toBeCloseTo(0.11936, 5);
+    expect(easeInOut(0, 1, 0.7, 2)).toBeCloseTo(0.784, 3);
+    expect(easeInOut(0, 1, 0.7, 3)).toBeCloseTo(0.784, 3);
+    expect(easeInOut(0, 1, 0.7, 4)).toBeCloseTo(0.76636, 5);
+  });
+
+  it("should clamp amount when clamp is true", () => {
+    expect(easeInOut(0, 1, -5, 1, true)).toBe(0);
+    expect(easeInOut(0, 1, 50, 1, true)).toBe(1);
+  });
+
+  it("should not clamp amount when clamp is false", () => {
+    expect(easeInOut(0, 1, -1, 1, 1, false)).toBeLessThan(0);
+    expect(easeInOut(0, 1, 2, 1, 1, false)).toBeGreaterThan(1);
   });
 });
