@@ -12,3 +12,16 @@ module.exports.lerp = (start, end, amount, clamped = true) => {
   amount = clamped ? clamp(amount, 0, 1) : amount;
   return start + (end - start) * amount;
 };
+
+/**
+ * Gets the lerp percentage where lerping from start to end will produce the value
+ * @param {*} start Starting value
+ * @param {*} end Ending value
+ * @param {*} value The lerped value
+ * @param {*} clamped Whether or not to clamp the returned amount between 0 and 1. Defaults to true
+ * @returns The lerp percentage
+ */
+module.exports.lerpPercentage = (start, end, value, clamped = true) => {
+  const lerpPercentage = (value - start) / (end - start);
+  return clamped ? clamp(lerpPercentage, 0, 1) : lerpPercentage;
+};

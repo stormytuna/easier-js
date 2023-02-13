@@ -1,4 +1,4 @@
-const { easeIn, easeOut, easeInOut, easeInNormalised, easeOutNormalised, easeInOutNormalised, lerp } = require("easier-js");
+const { easeIn, easeOut, easeInOut, easeInNormalised, easeOutNormalised, easeInOutNormalised, lerp, lerpPercentage } = require("easier-js");
 
 describe("lerp", () => {
   it("should return the correct value", () => {
@@ -151,5 +151,23 @@ describe("easeInOutNormalised", () => {
   it("should not clamp amount when clamp is false", () => {
     expect(easeInOutNormalised(-1, 1, 1, false)).toBeLessThan(0);
     expect(easeInOutNormalised(2, 1, 1, false)).toBeGreaterThan(1);
+  });
+});
+
+describe("lerpPercentage", () => {
+  it("should return the correct value", () => {
+    expect(lerpPercentage(0, 1, 0.5)).toBe(0.5);
+    expect(lerpPercentage(10, 20, 15)).toBe(0.5);
+    expect(lerpPercentage(20, 10, 15)).toBe(0.5);
+  });
+
+  it("should clamp amount when clamp is true", () => {
+    expect(lerpPercentage(0, 1, -1, true)).toBe(0);
+    expect(lerpPercentage(0, 1, 2, true)).toBe(1);
+  });
+
+  it("should not clamp amount when clamp is false", () => {
+    expect(lerpPercentage(0, 1, -1, false)).toBe(-1);
+    expect(lerpPercentage(0, 1, 2, false)).toBe(2);
   });
 });
