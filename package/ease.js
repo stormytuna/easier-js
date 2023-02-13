@@ -1,4 +1,5 @@
-const { lerp, clamp } = require("./helpers");
+const { clamp } = require("./helpers");
+const { lerp } = require("./lerp");
 
 /**
  * Ease in interpolation (smooth start) between the start and end value.
