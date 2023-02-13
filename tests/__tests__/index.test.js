@@ -1,4 +1,14 @@
-const { easeIn, easeOut, easeInOut, easeInNormalised, easeOutNormalised, easeInOutNormalised } = require("easier-js");
+const { easeIn, easeOut, easeInOut, easeInNormalised, easeOutNormalised, easeInOutNormalised, lerp } = require("easier-js");
+
+describe("lerp", () => {
+  it("should return the correct value", () => {
+    expect(lerp(0, 1, 0.5)).toBe(0.5);
+    expect(lerp(0, 1, 0.2)).toBe(0.2);
+    expect(lerp(0, 1, 0.7)).toBe(0.7);
+    expect(lerp(10, 20, 0.5)).toBe(15);
+    expect(lerp(20, 10, 0.5)).toBe(15);
+  });
+});
 
 describe("easeIn", () => {
   it("should return the correct value", () => {
