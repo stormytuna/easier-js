@@ -15,10 +15,10 @@ module.exports.lerp = (start, end, amount, clamped = true) => {
 
 /**
  * Gets the lerp percentage where lerping from start to end will produce the value
- * @param {*} start Starting value
- * @param {*} end Ending value
- * @param {*} value The lerped value
- * @param {*} clamped Whether or not to clamp the returned amount between 0 and 1. Defaults to true
+ * @param {number} start Starting value
+ * @param {number} end Ending value
+ * @param {number} value The lerped value
+ * @param {boolean} clamped Whether or not to clamp the returned amount between 0 and 1. Defaults to true
  * @returns The lerp percentage
  */
 module.exports.lerpPercentage = (start, end, value, clamped = true) => {
